@@ -4,7 +4,8 @@ package caution
 // compiled in either event.
 
 // Thinger should have two implementations, one for use with the private Go module, and
-// another placeholder used when the private Go module isn't available.
+// another placeholder implementation used when the private Go module isn't available.
 type Thinger interface {
+	// Do the thing™!
 	Thing() string
 }

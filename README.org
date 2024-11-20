@@ -4,6 +4,26 @@ Here I'll test setting up a Go project that can optionally include a private mod
 
 * Questions to answer
 ** Can this package be built and used without the private module?
+
+Yes.
+
+To determine this, I used a docker container, checked out the repository, and ran make to produce the binary. The tag "private" was not specified, and so the placeholder was used.
+
 ** Can this package be built *with* the private module?
+
+Yes.
+
+By specifying the build tag "private" (see Makefile), the private Go module is linked in and used.
+
 ** Is it easy to switch between the two?
+
+I'd say so, it's just changes to the ~-tags~ flag to ~go build~. It can be mostly if not entirely automated away behind a Makefile, or other scripts.
+
 ** How hard is it to leak details from the private module into this one?
+
+Mostly, I think it comes down to a couple of things:
+
+- What's visible in the caution package?
+- What's visible in the go.mod file? (that is, in the private package's path)
+
+Of these, the first is more likely to result in a leak. One will have to use care with the names chosen there.

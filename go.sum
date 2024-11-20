@@ -1,2 +1,4 @@
 github.com/ewollesen/optional-private-module v0.0.0-20241120183116-c62c8117c248 h1:PkW5YNyGaiR/NMLGl96E4XEg5OlVb5TiKuaO84cMQl8=
 github.com/ewollesen/optional-private-module v0.0.0-20241120183116-c62c8117c248/go.mod h1:UVgsvEGMg6ybYH1JiopyMNrRPW0pMpBjGAAEvnUO8dA=
+github.com/ewollesen/optional-private-module v0.0.0-20241120191039-f60b841bffc4 h1:Ai+jqvU/Oa96S0niT6oqz2s6g1HWXAvjv8SB48Nm8M8=
+github.com/ewollesen/optional-private-module v0.0.0-20241120191039-f60b841bffc4/go.mod h1:UVgsvEGMg6ybYH1JiopyMNrRPW0pMpBjGAAEvnUO8dA=

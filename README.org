@@ -1,0 +1,9 @@
+#+TITLE: Building with private modules
+
+Here I'll test setting up a Go project that can optionally include a private module.
+
+* Questions to answer
+** Can this package be built and used without the private module?
+** Can this package be built *with* the private module?
+** Is it easy to switch between the two?
+** How hard is it to leak details from the private module into this one?

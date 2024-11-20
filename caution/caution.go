@@ -1,6 +1,6 @@
-//go:build private
-
 // Package caution will optionally link to private modules.
+
+//go:build private
 
 package caution
 

@@ -27,3 +27,27 @@ Mostly, I think it comes down to a couple of things:
 - What's visible in the go.mod file? (that is, in the private package's path)
 
 Of these, the first is more likely to result in a leak. One will have to use care with the names chosen there.
+
+** Does it work with ~go mode vendor~?
+
+No. This seems to be a sticking point.
+
+#+begin_quote
+As with go mod tidy and other module commands, build constraints except for ignore are not considered when constructing the vendor directory.
+-- [[https://go.dev/ref/mod#vendoring][Go mod vendor docs]]
+#+end_quote
+
+* Other approaches
+
+** [[https://pkg.go.dev/cmd/go#hdr-Build_modes][-buildmode=shared]]
+
+Doesn't appear to be working since Go modules were introduced. Too bad. If it did work, it would probably be a good solution.
+
+#+begin_quote
+We've decided to leave -buildmode=shared alone (not delete it) for Go 1.18,
+but it's not going to work any better than it does today.
+In particular, we're not fixing any bugs in it anymore,
+and we still intend to remove it in a future release.
+However, I would like to better understand how to serve existing use cases, if that's possible.
+-- [[https://github.com/golang/go/issues/47788#issuecomment-954890659][rsc]]
+#+end_quote

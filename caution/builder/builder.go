@@ -5,7 +5,6 @@ import (
 	"flag"
 	"log"
 	"os"
-	"strings"
 	"text/template"
 )
 
@@ -27,10 +26,10 @@ func main() {
 	}
 
 	data := map[string]any{
-		"PrivatePaths": []string{placeholderPath},
+		"PrivatePath": placeholderPath,
 	}
-	if privatePaths := os.Getenv("PRIVATE_MODULE_PATHS"); privatePaths != "" {
-		data["PrivatePaths"] = strings.Split(privatePaths, ":")
+	if privatePath := os.Getenv("PRIVATE_MODULE_PATH"); privatePath != "" {
+		data["PrivatePath"] = privatePath
 	}
 
 	out, err := os.OpenFile(outputFilename, os.O_TRUNC|os.O_CREATE|os.O_WRONLY, 0600)

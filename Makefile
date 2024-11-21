@@ -1,6 +1,8 @@
 .PHONY: build
+build: export PRIVATE_MODULE_PATHS=github.com/ewollesen/building-with-private-modules/caution/placeholder
 build:
 	go generate ./...
+	go mod tidy
 	go build -o ./thinger .
 
 .PHONY: both

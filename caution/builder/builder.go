@@ -26,7 +26,7 @@ func main() {
 	}
 
 	data := map[string]any{
-		"PrivatePath": placeholderPath,
+		"PrivatePath":  placeholderPath,
 	}
 	if privatePath := os.Getenv("PRIVATE_MODULE_PKG_PATH"); privatePath != "" {
 		data["PrivatePath"] = privatePath

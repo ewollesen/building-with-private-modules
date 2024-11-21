@@ -1,24 +1,21 @@
+.PHONY: build
 build:
-	go build -o ./without-private-code .
+	go generate ./...
+	go build -o ./thinger .
 
+.PHONY: both
 both: build build-private
 
+.PHONY: generate
+generate:
+	go generate ./...
+
+.PHONY: build-private
 build-private: export GONOPROXY=github.com/ewollesen/optional-private-module
 build-private: export GOPRIVATE=github.com/ewollesen/optional-private-module
-build-private:
-	go build -o ./with-private-code -tags private .
+build-private: export PRIVATE_MODULE_PATHS=github.com/ewollesen/optional-private-module/secret
+build-private: build
 
+.PHONY: test
 test:
 	go test ./...
-
-test-private: export GONOPROXY=github.com/ewollesen/optional-private-module
-test-private: export GOPRIVATE=github.com/ewollesen/optional-private-module
-test-private:
-	go test -tags private ./...
-
-vendor: export GONOPROXY=github.com/ewollesen/optional-private-module
-vendor: export GOPRIVATE=github.com/ewollesen/optional-private-module
-vendor:
-	go mod vendor
-
-test-both: test test-private

@@ -51,3 +51,11 @@ and we still intend to remove it in a future release.
 However, I would like to better understand how to serve existing use cases, if that's possible.
 -- [[https://github.com/golang/go/issues/47788#issuecomment-954890659][rsc]]
 #+end_quote
+
+** Go generate
+
+Could go:generate be used to detect the existence of something, say an ENV value, and pull in one or the other import based on that?
+
+Interestingly, the ~go generate~ command respects the ~-tags~ flag.
+
+Maybe we could implement placeholders in a file with a !private build constraint. In another file with a private build constraint is a go:generate that would... do what exactly? change references from ~internal/pkg/placholder~ to ~real/location/of/dependency~? Isn't there a go tool to do just that? Maybe it wouldn't be that bad.
